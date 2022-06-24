@@ -2,7 +2,7 @@
   <p>
     <a href="https://www.npmjs.com/package/discord-anticrash"><img src="https://img.shields.io/npm/v/discord-anticrash" alt="NPM version" /></a>
     <a href="https://www.npmjs.com/package/discord-anticrash"><img src="https://img.shields.io/npm/dt/discord-anticrash" alt="NPM downloads" /></a>
-    <a href="https://www.npmjs.com/package/discord-anticrash"><img src="https://img.shields.io/snyk/vulnerabilities/npm/discord-anticrash?color=success&label=package%20vulnerabilities&logo=snyk&logoColor=red" alt="djs.captcha" /></a>
+    <a href="https://www.npmjs.com/package/discord-anticrash"><img src="https://img.shields.io/snyk/vulnerabilities/npm/discord-anticrash?color=success&label=package%20vulnerabilities&logo=snyk&logoColor=red" alt="Vulnerabilities" /></a>
 
   </p>
   <p>
