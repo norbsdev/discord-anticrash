@@ -9,15 +9,13 @@ class antiCrash extends EventEmitter {
     client.on(`ready`, async () => {
       console.log(`> [discord-anticrash loaded]`.green)
       if (!options.enableAntiCrash) {
-        console.log(`> [discord-anticrash] : Option antiCrash is blank / has no value!`.red)
-        process.exit(1);
+        throw new ReferenceError(`> [discord-anticrash] : Option antiCrash is blank / has no value!`.red)
       } else if (options.enableAntiCrash == "false") {
         console.log(`> [discord-anticrash] : Option enableAntiCrash is disabled, and [discord-anticrash] will not be preventing bot termination`.red)
       } else if (options.enableAntiCrash == "true") {
         catching()
       } else {
-        console.log(`> [discord-anticrash] : Option enableAntiCrash is not valid!`.red)
-        process.exit(1);
+        throw new SyntaxError(`> [discord-anticrash] : Option enableAntiCrash is not valid!`.red)
       }
     });
 
