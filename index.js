@@ -1,46 +1,66 @@
-const { EventEmitter } = require(`events`);
-const colors = require(`colors`);
-class antiCrash extends EventEmitter {
-  antiCrash_Emit = this
-  constructor(client, options) {
-    super();
-    this.client = client;
-    this.options = options;
+#  discord-anticrash
+  <p>
+    <a href="https://www.npmjs.com/package/discord-anticrash"><img src="https://img.shields.io/npm/v/discord-anticrash" alt="NPM version" /></a>
+    <a href="https://www.npmjs.com/package/discord-anticrash"><img src="https://img.shields.io/npm/dt/discord-anticrash" alt="NPM downloads" /></a>
+    <a href="https://www.npmjs.com/package/discord-anticrash"><img src="https://img.shields.io/snyk/vulnerabilities/npm/discord-anticrash?color=success&label=package%20vulnerabilities&logo=snyk&logoColor=red" alt="Vulnerabilities" /></a>
 
-    client.on(`ready`, async () => {
-      console.log(`> [discord-anticrash loaded]`.green)
-      if (!client) {
-        throw new ReferenceError(`> [discord-anticrash] : discord.client() is invalid!`.red)
-      } else if (!options.enableAntiCrash) {
-        throw new TypeError(`> [discord-anticrash] : Option antiCrash is blank / has no value!`.red)
-      } else if (options.enableAntiCrash == "false") {
-        console.log(`> [discord-anticrash] : Option enableAntiCrash is disabled, and [discord-anticrash] will not be preventing bot termination`.red)
-      } else if (options.enableAntiCrash == "true") {
-        catching()
-      } else {
-        throw new SyntaxError(`> [discord-anticrash] : Option enableAntiCrash is not valid!`.red)
-      }
-    });
+  </p>
+  <p>
+    <a href="https://www.npmjs.com/package/discord-anticrash"><img src="https://nodei.co/npm/discord-anticrash.png?downloads=true&stars=true" alt="NPM Banner"></a>
+  </p>
+  
+## What is this? and how do I use it?
 
-    async function catching() {
-      console.log(`> [discord-anticrash] : [discord-anticrash] is now preventing bot termination.`.blue)
-      process.on(`unhandledRejection`, (reason, p) => {
-        console.log(`> [discord-anticrash] : Unhandled Rejection/Catch`.red);
-        console.log(reason, p);
-      });
-      process.on("uncaughtException", (err, origin) => {
-        console.log(`> [discord-anticrash] : Uncaught Exception/Catch`.red);
-        console.log(err, origin);
-      });
-      process.on(`uncaughtExceptionMonitor`, (err, origin) => {
-        console.log(`> [discord-anticrash] Uncaught Exception/Catch (Monitor)`.red);
-        console.log(err, origin);
-      });
-      process.on(`multipleResolves`, (type, promise, reason) => {
-        console.log(`> [discord-anticrash] : Multiple Resolves`.red);
-        console.log(type, promise, reason);
-      })
-    }
-  }
-}
-module.exports = antiCrash;
+Discord-antiCrash is a npm package that helps prevent bot termination due to Uncaught/Unhandled errors made by your code. 
+
+You can use it by simply doing the steps below.
+
+>### Requirements
+  `NodeJS`: 16.6.0 and up (for DiscordJS v13)
+  <br></br>
+`DiscordJS`: v13.8.0 (for v13) v12.5.3 (for v12)
+
+>### Installation
+
+`npm i discord-anticrash@latest`
+If you do not have discordjs, read below:
+
+for v13 `npm i discord.js@13.8.0` <br></br>
+for v12 `npm i discord.js@12.5.3`
+
+>### Type this in your main file
+```js
+const antiCrash = require('discord-anticrash')
+const noCrashing = new antiCrash(client, {
+  enableAntiCrash: 'true/false'
+});
+```
+
+>### Examples
+#### The discord.js v12 Example
+```js
+const Discord = require("discord.js");
+const client = new Discord.Client();
+const antiCrash = require('discord-anticrash')
+
+const noCrash = new antiCrash(client, {
+  enableAntiCrash: 'true'
+});
+
+client.login("token")
+```
+#### The discord.js v13 example
+```js
+const Discord = require("discord.js");
+const client = new Discord.Client(
+{intents:
+[/**your intents*/]
+});
+const antiCrash = require('discord-anticrash')
+
+const noCrash = new antiCrash(client, {
+  enableAntiCrash: 'true'
+});
+
+client.login("token")
+```
