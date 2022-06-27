@@ -1,4 +1,4 @@
-#  discord-anticrash
+# discord-anticrash
   <p>
     <a href="https://www.npmjs.com/package/discord-anticrash"><img src="https://img.shields.io/npm/v/discord-anticrash" alt="NPM version" /></a>
     <a href="https://www.npmjs.com/package/discord-anticrash"><img src="https://img.shields.io/npm/dt/discord-anticrash" alt="NPM downloads" /></a>
@@ -9,7 +9,7 @@
     <a href="https://www.npmjs.com/package/discord-anticrash"><img src="https://nodei.co/npm/discord-anticrash.png?downloads=true&stars=true" alt="NPM Banner"></a>
   </p>
   
-## What is this? and how do I use it?
+## What is this and how do I use it?
 
 Discord-antiCrash is a npm package that helps prevent bot termination due to Uncaught/Unhandled errors made by your code. 
 
